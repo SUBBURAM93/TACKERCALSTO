@@ -1,0 +1,161 @@
+﻿<Window x:Class="Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TACKERCALSTO"
+        xmlns:sys="clr-namespace:TACKERCALSTO"
+
+        mc:Ignorable="d"
+        Title="Calsto Inventory PU4"
+        Height="1000" Width="1350"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5" WindowState="Maximized">
+
+    <Window.Resources>
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="15,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#D0E7FF"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#B0D3F0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Height="Auto" Background="#E6F0FA" MinHeight="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ✅ Logo + App Title -->
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+                <Image Source="/Resources/CA_Storage_Logo-removebg-preview.png"
+               Width="130" Height="40" Margin="0,0,8,0"/>
+                <Label Content="CALSTO INVENTORY (PU4)"
+               FontWeight="Bold" FontSize="18" Foreground="#333333"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+
+            <!-- ✅ Navigation Buttons + Actions + User Info -->
+            <WrapPanel Grid.Column="2"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Margin="0,0,10,0"
+               ItemHeight="40"
+               ItemWidth="Auto">
+
+                <!-- 📦 Master -->
+
+
+                <!-- 🔮 Forecasting -->
+                <Button ToolTip="View Forecasting Reports"
+                Content="🔮 FORECASTING" 
+                Style="{StaticResource NavButtonStyle}"
+                FontSize="10" FontWeight="Bold"
+                Margin="2,0"/>
+
+                <!-- 👤 User Management -->
+                <Button ToolTip="Manage Users and Roles"
+                Content="👤 USER MANAGEMENT" 
+                Style="{StaticResource NavButtonStyle}"
+                FontSize="10" FontWeight="Bold"
+                Margin="2,0"/>
+
+                <!-- 📥 Download -->
+                <Button ToolTip="Export to Excel or PDF"
+                Content="📥 DOWNLOAD" 
+                Width="95" Height="32"
+                Margin="10,0,2,0"/>
+
+                <!-- 🔄 Refresh -->
+                <Button ToolTip="Reload Dashboard / Tables"
+                Content="🔄 REFRESH"
+                Width="90" Height="32"
+                Margin="2,0,20,0"/>
+
+                <!-- 👤 Profile Icon + Bound Name -->
+                <Image ToolTip="Logged-in user"
+               Source="/Resources/profile.png"
+               Width="30" Height="30"
+               Margin="0,0,5,0"/>
+
+                <!-- 🔗 Bind this to a ViewModel Property like LoggedInUser {x:Static sys:Application.LoggedInUsername}-->
+                <TextBlock Text="Vinith"
+           FontSize="14"
+           Foreground="#333333"
+           VerticalAlignment="Center"
+           Margin="0,0,10,0"/>
+
+
+                <!-- 🏢 Company Logo -->
+                <Image Width="125" Height="30"
+               Stretch="Uniform"
+               VerticalAlignment="Center"
+               Source="/Views/Calsto.png"/>
+            </WrapPanel>
+        </Grid>
+
+
+
+        <ContentControl x:Name="MainContentArea" Margin="10" />
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Margin="2,2,0,2"  Background="White"
+                    CornerRadius="10"
+                    BorderBrush="#CCCCCC"
+                    BorderThickness="1"
+                    SnapsToDevicePixels="True">
+                <TabControl Background="Transparent"
+                            BorderThickness="0"
+                            Padding="2" Margin="0,0,-5,0">
+                    <TabItem Header="Dashboard" Margin="10,-2,-12,0">
+                        <Frame Source="Pages/Dashboard.xaml" NavigationUIVisibility="Hidden"/>
+                    </TabItem>
+
+
+                    <TabItem Header="Planning" Margin="10,-2,-12,0">
+                        <Frame Source="Pages/Planning.xaml" NavigationUIVisibility="Hidden"/>
+                    </TabItem>
+
+                    <TabItem Header="TRANSACTION HISTORY" FontSize="9" FontWeight="Bold" Margin="10,-2,-12,0">
+                        <Grid Background="White">
+
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
