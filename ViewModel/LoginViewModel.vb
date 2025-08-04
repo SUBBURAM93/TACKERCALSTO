@@ -91,12 +91,6 @@ Public Class LoginViewModel
             Return False
         End If
     End Function
-
-
-
-
-
-
     Private Sub ExecuteLogin()
 
         If String.IsNullOrWhiteSpace(Username) OrElse String.IsNullOrWhiteSpace(Password) Then
