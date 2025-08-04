@@ -5,6 +5,8 @@ Imports System.Configuration
 Imports Microsoft.Data.SqlClient
 Imports System.Threading.Tasks
 Imports TACKERCALSTO.DashboardModel
+Imports System.Data
+
 
 Public Class DashboardViewModel
     Implements INotifyPropertyChanged
@@ -56,6 +58,12 @@ Public Class DashboardViewModel
                 ' Clear details list when no selection
                 FilteredDetailsList = New ObservableCollection(Of DetailModel)()
             End If
+
+            If _applyCommand IsNot Nothing Then
+                CType(_applyCommand, RelayCommand).RaiseCanExecuteChanged()
+            End If
+
+
         End Set
     End Property
 
@@ -168,5 +176,47 @@ Public Class DashboardViewModel
     End Sub
 
 #End Region
+
+#Region "Date apply"
+
+
+    Private Function CanPODateApply() As Boolean
+        Return SelectedOperation IsNot Nothing
+    End Function
+
+    Private Sub PODateApply()
+        If SelectedOperation Is Nothing Then Exit Sub
+
+        Try
+            Dim conString = ConfigurationManager.ConnectionStrings("Db_Server").ConnectionString
+            Using con As New SqlConnection(conString)
+                Using cmd As New SqlCommand("usp_UpdateProjectDates", con)
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.AddWithValue("@BOMNo", SelectedOperation.BOMNo)
+                    cmd.Parameters.AddWithValue("@PODispatchDate", If(SelectedOperation.PODispatchDate, DBNull.Value))
+                    con.Open()
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+
+            MessageBox.Show("Dates updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Error while updating: " & ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error)
+        End Try
+    End Sub
+
+    Public ReadOnly Property POdateApplyCommand As ICommand
+        Get
+            If _applyCommand Is Nothing Then
+                _applyCommand = New RelayCommand(AddressOf PODateApply, AddressOf CanPODateApply)
+            End If
+            Return _applyCommand
+        End Get
+    End Property
+    Private _applyCommand As ICommand
+
+#End Region
+
 
 End Class

@@ -1,4 +1,5 @@
 ﻿Public Class DashboardModel
+
     Public Property BOMNo As String
     Public Property CustomerName As String
     Public Property Location As String
@@ -11,6 +12,7 @@
     Public Property DispatchDate As Nullable(Of Date)
     Public Property ProjectStatus As String
     Public Property DueDate As Nullable(Of Integer)
+
 
     Public Class DetailModel
 

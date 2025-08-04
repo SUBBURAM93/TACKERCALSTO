@@ -46,7 +46,7 @@
         <Style x:Key="ProjectStatusStyle" TargetType="TextBlock" BasedOn="{StaticResource CellTextStyle}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ProjectStatus}" Value="OPEN">
-                    <Setter Property="Foreground" Value="Green"/>
+                    <Setter Property="Foreground" Value="orange"/>
                     <Setter Property="FontWeight" Value="Bold"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding ProjectStatus}" Value="HOLD">
@@ -119,8 +119,8 @@
         <!-- Details and StockIn Panel -->
         <Grid Grid.Column="2" Margin="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
 
             <!-- Details DataGrid -->
@@ -136,7 +136,7 @@
                       Margin="0,0,0,12">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Field" Binding="{Binding Field}" Width="*" />
-                    <DataGridTextColumn Header="Detail" Binding="{Binding Detail}" Width="2*" ElementStyle="{StaticResource CellTextStyle}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Detail}" Width="2*" />
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -158,20 +158,20 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        
-                      
+
+
                         <TextBlock Text="PO Date:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,8"/>
-                        <DatePicker Grid.Row="2" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8"/>
+                        <DatePicker Grid.Row="2" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8" SelectedDate="{Binding SelectedOperation.PODispatchDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="PO Date:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,8"/>
                         <DatePicker Grid.Row="3" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8"/>
 
-                        <TextBlock Text="Remarks:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" FontWeight="SemiBold" Margin="0,0,8,0"/>
-                        <TextBox Grid.Row="4" Grid.Column="1" AcceptsReturn="True" Height="20" TextWrapping="Wrap" FontSize="12" />
+                        <Button Content="Apply" Grid.Row="4" Grid.Column="1" Width="80" Height="30" Margin="0,12,0,0" Background="#007AFF" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" Command= "{Binding POdateApplyCommand}" />
+                        <Button Content="Hold/Cancel" Grid.Row="4" Grid.Column="0" Width="80" Height="30" Margin="0,12,0,0" Background="red" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" />
 
                     </Grid>
 
-                    <Button Content="Apply" Width="80" Height="30" Margin="0,12,0,0" Background="#007AFF" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" />
+
                 </StackPanel>
             </Border>
         </Grid>
