@@ -3,29 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TACKERCALSTO"
-        xmlns:sys="clr-namespace:TACKERCALSTO"
-
         mc:Ignorable="d"
         Title="Calsto Inventory PU4"
         Height="1000" Width="1350"
         WindowStartupLocation="CenterScreen"
-        Background="#F5F5F5" WindowState="Maximized">
+        Background="#F5F5F5"
+        WindowState="Maximized">
 
     <Window.Resources>
-        <Style x:Key="NavButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#333333"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Padding" Value="15,6"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
+        <!-- Gradient for the header -->
+        <LinearGradientBrush x:Key="HeaderGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF0088AA" Offset="0"/>
+            <GradientStop Color="#FF7ACBD6" Offset="1"/>
+        </LinearGradientBrush>
+        <!-- Modern shadow effect -->
+        <DropShadowEffect x:Key="ModernShadow" BlurRadius="10" ShadowDepth="0" Color="#33000000"/>
+        <!-- Modern pill icon button style -->
+        <Style x:Key="ModernIconButton" TargetType="Button">
+            <Setter Property="Background" Value="#4CFFFFFF"/>
+            <Setter Property="Foreground" Value="#05485E"/>
+            <Setter Property="BorderBrush" Value="#20FFFFFF"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Width" Value="42"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                                Padding="{TemplateBinding Padding}">
+                                CornerRadius="21"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -33,10 +44,12 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#D0E7FF"/>
+                    <Setter Property="Background" Value="#88E1F3F9"/>
+                    <Setter Property="BorderBrush" Value="#FF0088AA"/>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#B0D3F0"/>
+                    <Setter Property="Background" Value="#FF0088AA"/>
+                    <Setter Property="Foreground" Value="#FFFFFF"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -44,117 +57,206 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+            <!-- Modern header -->
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Height="Auto" Background="#E6F0FA" MinHeight="50">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+        <!-- MODERN HEADER (no Spacing, only one Effect per element, using Margin for spacing) -->
+        <!-- Outer Border for shadow -->
+        <Border Grid.Row="0"
+                Background="Transparent"
+                CornerRadius="0,0,28,28"
+                Effect="{StaticResource ModernShadow}">
+            <!-- Inner Border for gradient and blur -->
+            <Border Background="{StaticResource HeaderGradient}" CornerRadius="0,0,28,28">
+                <!--<Border.Effect>
+                    <BlurEffect Radius="0"/>
+                </Border.Effect>-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-            <!-- ✅ Logo + App Title -->
-            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
-                <Image Source="/Resources/CA_Storage_Logo-removebg-preview.png"
-               Width="130" Height="40" Margin="0,0,8,0"/>
-                <Label Content="CALSTO INVENTORY (PU4)"
-               FontWeight="Bold" FontSize="18" Foreground="#333333"
-               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </StackPanel>
+                    <!-- Left: Logo -->
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="22,0,0,0">
+                        <Image Source="/Resources/Picture1.png"
+                               Width="110" Height="36" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    </StackPanel>
 
-            <!-- ✅ Navigation Buttons + Actions + User Info -->
-            <WrapPanel Grid.Column="2"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Right"
-               Margin="0,0,10,0"
-               ItemHeight="40"
-               ItemWidth="Auto">
+                    <!-- Center: App Title -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Text="PRODUCTION TRACKER (PU4)"
+                                   FontFamily="Calibri"
+                                   FontWeight="Bold"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   Margin="15,0,0,2"
+                                   VerticalAlignment="Center"
+                                   Effect="{StaticResource ModernShadow}"/>
+                    </StackPanel>
 
-                <!-- 📦 Master -->
+                    <!-- Right: Nav Buttons, User, Company Logo -->
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,24,0">
+                        <Button Style="{StaticResource ModernIconButton}" ToolTip="Forecasting" Margin="0,0,7,0" Height="30" Width="30">
+                            <TextBlock Text="🔮"/>
+                        </Button>
+                        <Button Style="{StaticResource ModernIconButton}" ToolTip="User Management" Margin="0,0,7,0" Height="30" Width="30">
+                            <TextBlock Text="👤"/>
+                        </Button>
+                        <Button Style="{StaticResource ModernIconButton}" ToolTip="Download" Margin="0,0,7,0" Height="30" Width="30">
+                            <TextBlock Text="📥"/>
+                        </Button>
+                        <Button Style="{StaticResource ModernIconButton}" ToolTip="Refresh" Margin="0,0,12,0" Height="30" Width="30">
+                            <TextBlock Text="🔄"/>
+                        </Button>
+                        <!-- Circular Profile Avatar -->
+                        <Ellipse Width="38" Height="38" Margin="0,0,8,0" Stroke="#E0F7FA" StrokeThickness="1.1">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Resources/profile.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <!-- Username -->
+                        <TextBlock Text="Vinith" FontSize="15" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <!-- Company Logo -->
+                        <Image Width="100" Height="28" Stretch="Uniform" VerticalAlignment="Center" Source="/Resources/CA_Storage_Logo-removebg-preview.png" Margin="0,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Border>
 
+        <!-- MAIN CONTENT AREA -->
+        <ContentControl x:Name="MainContentArea" Grid.Row="1" />
 
-                <!-- 🔮 Forecasting -->
-                <Button ToolTip="View Forecasting Reports"
-                Content="🔮 FORECASTING" 
-                Style="{StaticResource NavButtonStyle}"
-                FontSize="10" FontWeight="Bold"
-                Margin="2,0"/>
-
-                <!-- 👤 User Management -->
-                <Button ToolTip="Manage Users and Roles"
-                Content="👤 USER MANAGEMENT" 
-                Style="{StaticResource NavButtonStyle}"
-                FontSize="10" FontWeight="Bold"
-                Margin="2,0"/>
-
-                <!-- 📥 Download -->
-                <Button ToolTip="Export to Excel or PDF"
-                Content="📥 DOWNLOAD" 
-                Width="95" Height="32"
-                Margin="10,0,2,0"/>
-
-                <!-- 🔄 Refresh -->
-                <Button ToolTip="Reload Dashboard / Tables"
-                Content="🔄 REFRESH"
-                Width="90" Height="32"
-                Margin="2,0,20,0"/>
-
-                <!-- 👤 Profile Icon + Bound Name -->
-                <Image ToolTip="Logged-in user"
-               Source="/Resources/profile.png"
-               Width="30" Height="30"
-               Margin="0,0,5,0"/>
-
-                <!-- 🔗 Bind this to a ViewModel Property like LoggedInUser {x:Static sys:Application.LoggedInUsername}-->
-                <TextBlock Text="Vinith"
-           FontSize="14"
-           Foreground="#333333"
-           VerticalAlignment="Center"
-           Margin="0,0,10,0"/>
-
-
-                <!-- 🏢 Company Logo -->
-                <Image Width="125" Height="30"
-               Stretch="Uniform"
-               VerticalAlignment="Center"
-               Source="/Views/Calsto.png"/>
-            </WrapPanel>
-        </Grid>
-
-
-
-        <ContentControl x:Name="MainContentArea" Margin="10" />
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Margin="2,2,0,2"  Background="White"
-                    CornerRadius="10"
-                    BorderBrush="#CCCCCC"
+            <Border Grid.Column="0" Margin="5,5,5,5"  Background="White"
+                    CornerRadius="16"
+                    BorderBrush="#E0E0E0"
                     BorderThickness="1"
-                    SnapsToDevicePixels="True">
+                    SnapsToDevicePixels="True"
+                    Effect="{StaticResource ModernShadow}">
                 <TabControl Background="Transparent"
                             BorderThickness="0"
-                            Padding="2" Margin="0,0,-5,0">
-                    <TabItem Header="Dashboard" Margin="10,-2,-12,0">
-                        <Frame Source="Pages/Dashboard.xaml" NavigationUIVisibility="Hidden"/>
-                    </TabItem>
+                            Padding="6" Margin="0,0,-5,0"
+                            FontFamily="Segoe UI" FontSize="15">
+                 <TabItem Margin="10,-2,-12,0" FontSize="12" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="📊" Margin="0,0,5,0"/>
+            <TextBlock Text="DASHBOARD"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Frame Source="Pages/Dashboard.xaml" NavigationUIVisibility="Hidden"/>
+</TabItem>
 
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="📅" Margin="0,0,5,0"/>
+            <TextBlock Text="PLANNING"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Frame Source="Pages/Planning.xaml" NavigationUIVisibility="Hidden"/>
+</TabItem>
 
-                    <TabItem Header="Planning" Margin="10,-2,-12,0">
-                        <Frame Source="Pages/Planning.xaml" NavigationUIVisibility="Hidden"/>
-                    </TabItem>
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="🏗️" Margin="0,0,5,0"/>
+            <TextBlock Text="FORMING"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
 
-                    <TabItem Header="TRANSACTION HISTORY" FontSize="9" FontWeight="Bold" Margin="10,-2,-12,0">
-                        <Grid Background="White">
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="🔧" Margin="0,0,5,0"/>
+            <TextBlock Text="WELDING"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
 
-                        </Grid>
-                    </TabItem>
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="🔦" Margin="0,0,5,0"/>
+            <TextBlock Text="LASER/BENDING"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
+
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="🎨" Margin="0,0,5,0"/>
+            <TextBlock Text="COATING"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
+
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="⚙️" Margin="0,0,5,0"/>
+            <TextBlock Text="OSP"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
+
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="🏬" Margin="0,0,5,0"/>
+            <TextBlock Text="STORES"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
+
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="📦" Margin="0,0,5,0"/>
+            <TextBlock Text="INVENTORY"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
+
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="📥" Margin="0,0,5,0"/>
+            <TextBlock Text="PACKING"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
+
+<TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
+    <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="🚚" Margin="0,0,5,0"/>
+            <TextBlock Text="DISPATCH"/>
+        </StackPanel>
+    </TabItem.Header>
+    <Grid Background="White"/>
+</TabItem>
+
                 </TabControl>
+                
             </Border>
         </Grid>
     </Grid>

@@ -1,12 +1,13 @@
-﻿<Page x:Class="Planning"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:control="clr-namespace:FilterDataGrid;assembly=FilterDataGrid"
-      Title="Planning" Background="#FAFAFA" FontFamily="Segoe UI" FontSize="11">
+      xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Planning"
+      Title="Planning" Background="#FAFAFA" FontFamily="Segoe UI" FontSize="11" av:DesignHeight="594.701">
 
     <Page.Resources>
         <!-- Header style -->
-        <Style x:Key="HeaderStyle" TargetType="DataGridColumnHeader">
+        <Style x:Key="HeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="FontSize" Value="11"/>
             <Setter Property="Background" Value="#F5F7FA"/>
@@ -18,7 +19,7 @@
         </Style>
 
         <!-- Row style without unconditional background -->
-        <Style x:Key="RowStyle" TargetType="DataGridRow">
+        <Style x:Key="RowStyle" TargetType="{x:Type DataGridRow}">
             <Setter Property="FontSize" Value="11"/>
             <Setter Property="Foreground" Value="#222"/>
             <Setter Property="MinHeight" Value="22"/>
@@ -35,7 +36,7 @@
         </Style>
 
         <!-- Cell text style with trimming -->
-        <Style x:Key="CellTextStyle" TargetType="TextBlock">
+        <Style x:Key="CellTextStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="Padding" Value="6,0"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
@@ -43,7 +44,7 @@
         </Style>
 
         <!-- Highlight blue for ProjectStatus Open -->
-        <Style x:Key="ProjectStatusStyle" TargetType="TextBlock" BasedOn="{StaticResource CellTextStyle}">
+        <Style x:Key="ProjectStatusStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CellTextStyle}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ProjectStatus}" Value="OPEN">
                     <Setter Property="Foreground" Value="Green"/>
@@ -91,7 +92,7 @@
             <control:FilterDataGrid.Columns>
                 <control:DataGridTextColumn Header="BOM No." Binding="{Binding PROJECTNO}" Width="110" IsColumnFiltered="True">
                     <control:DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock" BasedOn="{StaticResource CellTextStyle}">
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CellTextStyle}">
                             <Setter Property="FontWeight" Value="Bold"/>
                             <Setter Property="Foreground" Value="Black"/>
                         </Style>
@@ -120,7 +121,7 @@
 
             <!-- Details DataGrid -->
             <DockPanel Grid.Row="0" HorizontalAlignment="Right">
-                
+
                 <CheckBox x:Name="SelectAllFilteredCheckBox" Content="Select all-Filtered" Width="130" VerticalAlignment="Center" Click="SelectAllFilteredCheckBox_Click"/>
                 <Button Content="Create Job Card" Background="#007AFF" Foreground="White" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"  DockPanel.Dock="Right" Width="86" Margin="0,0,50,0" Click="CreateJobCard_Click"/>
             </DockPanel>

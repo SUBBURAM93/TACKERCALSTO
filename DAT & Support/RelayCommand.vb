@@ -1,4 +1,6 @@
-﻿Public Class RelayCommand
+﻿Imports System.Windows.Input
+
+Public Class RelayCommand
     Implements ICommand
 
     Private ReadOnly _execute As Action

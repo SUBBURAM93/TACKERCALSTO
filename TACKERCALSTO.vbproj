@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Calsto.png" />
+    <None Remove="Views\CA_Storage_Logo-removebg-preview.png" />
+    <None Remove="Views\Picture1.png" />
+    <None Remove="Views\profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Import Include="System.Windows" />
     <Import Include="System.Windows.Controls" />
     <Import Include="System.Windows.Data" />
@@ -20,13 +27,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoFilter.Sql" Version="2.0.0" />
     <PackageReference Include="FilterDataGrid" Version="1.2.9" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Calsto.png" />
+    <Resource Include="Resources\CA_Storage_Logo-removebg-preview.png" />
+    <Resource Include="Resources\Picture1.png" />
+    <Resource Include="Resources\profile.png" />
   </ItemGroup>
 
 </Project>

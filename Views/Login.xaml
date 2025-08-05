@@ -1,27 +1,20 @@
 ﻿<Window x:Class="Login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="av"
         Title="Login"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Width="568" Height="400"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent">
+        Background="Transparent"
+        Loaded="Window_Loaded">
 
-
-    <!-- Resources -->
     <Window.Resources>
-        <!-- Gradient brush -->
         <LinearGradientBrush x:Key="loginGradient" StartPoint="0.5,0" EndPoint="0.5,1">
             <GradientStop Color="#FF232D37" Offset="0"/>
             <GradientStop Color="#FF408399" Offset="1"/>
         </LinearGradientBrush>
-
-        <!-- Rounded Login Button Style -->
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#1C809C"/>
             <Setter Property="Foreground" Value="White"/>
@@ -82,20 +75,13 @@
                         <DropShadowEffect BlurRadius="15" ShadowDepth="0" Color="#2A000000"/>
                     </Border.Effect>
 
-                    <Grid>
+                    <Grid Margin="-9,-2,-8,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
-                            <!-- Header & Fields -->
                             <RowDefinition Height="Auto"/>
-                            <!-- Error & Forgot Password -->
-                            <RowDefinition Height="Auto"/>
-                            <!-- Login Button -->
-                            <RowDefinition Height="Auto"/>
-                            <!-- Update Label -->
-                            <RowDefinition Height="Auto"/>
-                            <!-- Version Info -->
-                            <RowDefinition Height="Auto"/>
-                            <!-- DB Status -->
+                            <RowDefinition Height="Auto" MinHeight="45"/>
+                            <RowDefinition Height="61"/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
                         <!-- Header + Username + Password -->
@@ -111,41 +97,30 @@
                                        Margin="0,0,0,16"/>
 
                             <!-- Username -->
-                            <TextBlock Text="Username"
-                                       Foreground="#8A8A8A"
-                                       FontSize="12"
-                                       Margin="0,0,0,4"/>
+                            <TextBlock Text="Username" Foreground="#8A8A8A" FontSize="12" Margin="0,0,0,4"/>
                             <Border Background="#F5F7FA"
                                     Height="30"
                                     CornerRadius="8"
                                     Margin="0,0,0,8"
                                     BorderBrush="#E0E0E0"
-                                    BorderThickness="1">
+                                    BorderThickness="0.5">
                                 <Border.Effect>
                                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Color="#20000000"/>
                                 </Border.Effect>
-                                <DockPanel>
+                                <DockPanel LastChildFill="True">
                                     <TextBlock Text="👤"
                                                FontSize="14"
                                                VerticalAlignment="Center"
                                                Margin="10,0"/>
                                     <TextBox x:Name="txtUsername"
+                                             VerticalContentAlignment="Center"
                                              Background="Transparent"
                                              BorderThickness="0"
                                              FontSize="12"
                                              Foreground="#232D37"
-                                             Padding="4,0"
-                                             VerticalAlignment="Center"/>
+                                             Padding="4,0" Height="30"/>
                                 </DockPanel>
                             </Border>
-
-                            <!-- Username Validation -->
-                            <TextBlock x:Name="lblUsernameValidation"
-                                       Text="Please enter username"
-                                       Foreground="#E74C3C"
-                                       FontSize="10"
-                                       Visibility="Collapsed"
-                                       Margin="0,0,0,8"/>
 
                             <!-- Password -->
                             <TextBlock Text="Password"
@@ -167,12 +142,15 @@
                                                VerticalAlignment="Center"
                                                Margin="10,0"/>
                                     <PasswordBox x:Name="txtPassword"
+                                                 VerticalContentAlignment="Center"
                                                  Background="Transparent"
                                                  BorderThickness="0"
                                                  FontSize="12"
                                                  Foreground="#232D37"
-                                                 Width="166"
-                                                 Padding="4,0"/>
+                                                 Width="178"
+                                                 Padding="4,0" Height="28"
+                                                 PreviewKeyDown="txtPassword_PreviewKeyDown"
+                                                 GotFocus="txtPassword_GotFocus"/>
                                     <Button x:Name="btnTogglePassword"
                                             Content="👁️"
                                             FontSize="12"
@@ -183,18 +161,10 @@
                                             Cursor="Hand"
                                             ToolTip="Show/Hide Password"
                                             Margin="4,0"
-                                            VerticalAlignment="Center"/>
-                                    <Frame Content="Frame" Width="100"/>
+                                            VerticalAlignment="Center"
+                                            Click="btnTogglePassword_Click"/>
                                 </DockPanel>
                             </Border>
-
-                            <!-- Password Validation -->
-                            <TextBlock x:Name="lblPasswordValidation"
-                                       Text="Please enter password"
-                                       Foreground="#E74C3C"
-                                       FontSize="10"
-                                       Visibility="Collapsed"
-                                       Margin="0,0,0,8"/>
 
                             <!-- Caps Lock -->
                             <TextBlock x:Name="lblCapsLock"
@@ -211,95 +181,70 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0">
-                                <TextBlock x:Name="lblError"
-                                           Text="Validation Error"
-                                           Foreground="#E74C3C"
-                                           FontSize="10"
-                                           Visibility="Collapsed"
-                                           Margin="0,0,0,4"/>
-                                <TextBlock x:Name="lblErrorMsg"
-                                           Text="Please enter both username and password"
-                                           Foreground="#E74C3C"
-                                           FontSize="10"
-                                           Visibility="Collapsed"/>
-                            </StackPanel>
+                            <TextBlock x:Name="lblError"
+                                       Foreground="#E74C3C"
+                                       FontSize="10"
+                                       Margin="0,2,78,2" Grid.Column="0" Grid.ColumnSpan="2"/>
                             <TextBlock x:Name="txtForgotPassword"
                                        Text="Forgot password?"
                                        Foreground="#6F7B8A"
-                                       FontSize="9"
+                                       FontSize="8"
                                        Cursor="Hand"
                                        TextDecorations="Underline"
                                        VerticalAlignment="Center"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
                                        Grid.Column="1"
                                        MouseLeftButtonUp="txtForgotPassword_MouseLeftButtonUp"/>
                         </Grid>
 
                         <!-- Login Button -->
                         <Button Grid.Row="2"
+                                x:Name="btnLogin"
                                 Content="Log in"
-                                Width="90"
-                                Height="32"
-                                HorizontalAlignment="Left"
+                                Width="240"
+                                HorizontalAlignment="Center"
                                 Background="#1C809C"
                                 Foreground="White"
                                 FontWeight="SemiBold"
                                 FontSize="14"
                                 Cursor="Hand"
-                                Margin="150,2,0,10"
+                                Margin="0,6,0,6"
                                 BorderThickness="0"
+                                Click="btnLogin_Click"
                                 Style="{StaticResource RoundedButtonStyle}"/>
 
                         <!-- Update Info -->
                         <TextBlock x:Name="lblUpdate"
+                                   Visibility="Visible"
                                    Grid.Row="3"
-                                   Text="New Update Available"
-                                   FontSize="11"
+                                   FontSize="10"
                                    Foreground="#009688"
-                                   Margin="0,0,0,8"
-                                   HorizontalAlignment="Left"/>
+                                   Margin="-2,3,86,41" FontWeight="SemiBold" TextAlignment="Center">
+                            <Run Text="🔔 Update Available : "/>
+                            <Run Text="Click to install."/>
+                        </TextBlock>
 
-                        <!-- Version Info -->
-                        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,12">
-                            <TextBlock Text="CALSTO : D25.7.1"
-                                       FontSize="10"
-                                       Foreground="#8A8A8A"
-                                       Margin="0,0,10,0"/>
-                            <TextBlock Text="For any assistance contact admin"
-                                       FontSize="10"
-                                       Foreground="#8A8A8A"/>
-                        </StackPanel>
-
-                        <!-- DB Connection Status -->
-                        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left">
+                        <!-- Admin Info -->
+                        <TextBlock Text="For any assistance contact admin"
+                                   FontSize="10"
+                                   Foreground="#8A8A8A" Margin="6,43,82,0" Grid.Row="3"/>
+                        <StackPanel Margin="6,0,0,0" Orientation="Horizontal" Grid.Row="4" VerticalAlignment="Center" Height="15">
+                            <TextBlock Text="CALSTO :" FontSize="9" Foreground="#8A8A8A" Height="15" Width="40"/>
+                            <TextBlock x:Name="lblVersion" FontSize="9" Foreground="#8A8A8A" Height="15" Width="35"/>
                             <Ellipse x:Name="dbStatusIndicator"
-                                     Width="10"
-                                     Height="10"
-                                     Fill="Red"
-                                     Margin="0,0,6,0"
-                                     VerticalAlignment="Center"/>
+                                Height="10"
+                                Fill="Red"
+                                 Width="10" Margin="100,0,0,0"/>
                             <TextBlock x:Name="dbStatusText"
-                                       Text="Not Connected"
-                                       FontSize="10"
-                                       Foreground="#8A8A8A"
-                                       VerticalAlignment="Center"/>
+                                Text="Not Connected"
+                                FontSize="9"
+                                Foreground="#8A8A8A"
+                                Height="15" Width="65" Margin="5,0,0,0"/>
                         </StackPanel>
                     </Grid>
                 </Border>
             </Grid>
         </Border>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="98,304,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.5,0.5">
-            <CheckBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </CheckBox.RenderTransform>
-        </CheckBox>
-        <TextBox x:Name="txtPasswordVisible" HorizontalAlignment="Left" Height="20" Margin="103,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="❌" HorizontalAlignment="Left" Margin="525,10,0,0" VerticalAlignment="Top" Height="27" Background="{x:Null}" Foreground="#FFEB2A13"/>
     </Grid>
 </Window>
