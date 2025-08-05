@@ -65,15 +65,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4.5*"/>
         </Grid.ColumnDefinitions>
-
         <!-- Master Data Grid -->
         <control:FilterDataGrid 
             x:Name="MasterDG"
             ItemsSource="{Binding PlannigList}"
             AutoGenerateColumns="False"
-            SelectedItem="{Binding SelectedWID, Mode=TwoWay}"
+            SelectedItem="{Binding SelectedProj, Mode=TwoWay}"
             ShowRowsCount="True"
             ShowStatusBar="True"
             FilterLanguage="English"
@@ -98,9 +97,9 @@
                         </Style>
                     </control:DataGridTextColumn.ElementStyle>
                 </control:DataGridTextColumn>
-                
+
                 <control:DataGridTextColumn Header="Customer" Binding="{Binding Customer}" Width="250" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
-                
+
             </control:FilterDataGrid.Columns>
         </control:FilterDataGrid>
 
@@ -110,15 +109,29 @@
         <!-- Details and StockIn Panel -->
         <Grid Grid.Column="2" Margin="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            
+
+            <!-- Details DataGrid -->
+
+
+            <!-- Details DataGrid -->
+            <DockPanel Grid.Row="0" HorizontalAlignment="Right">
+                
+                <CheckBox x:Name="SelectAllFilteredCheckBox" Content="Select all-Filtered" Width="130" VerticalAlignment="Center" Click="SelectAllFilteredCheckBox_Click"/>
+                <Button Content="Create Job Card" Background="#007AFF" Foreground="White" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"  DockPanel.Dock="Right" Width="86" Margin="0,0,50,0" Click="CreateJobCard_Click"/>
+            </DockPanel>
+
+
             <!-- Details DataGrid -->
             <control:FilterDataGrid 
     x:Name="WIDBOMDG"
     ItemsSource="{Binding PlanningSideDgList}" 
+    SelectedItem="{Binding SelectedBOM, Mode=TwoWay}"
+    SelectionMode="Single"
     AutoGenerateColumns="False"    
     ShowRowsCount="True"
     ShowStatusBar="True"
@@ -133,226 +146,114 @@
     RowStyle="{StaticResource RowStyle}"
     CanUserResizeColumns="True"
     CanUserSortColumns="True"
-    Margin="0,0,0,12">
+    Margin="0,9,0,12" Grid.Row="1">
 
                 <control:FilterDataGrid.Columns>
                     <control:DataGridTextColumn Header="WID" Binding="{Binding WID}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
-                    <control:DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="120" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                    <control:DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="Assigned" Binding="{Binding Assigned}" Width="110" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="BOM Qty" Binding="{Binding BOMQty}" Width="110" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="Process" Binding="{Binding Process}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                    <control:DataGridTextColumn Header="Job card" Binding="{Binding Jobcard}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="Colour" Binding="{Binding Colour}" Width="90" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="Packing Balance" Binding="{Binding PackingBalance}" Width="90" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="Dispatched Qty" Binding="{Binding DispatchQty}" Width="110" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="Dispatch Date" Binding="{Binding DispatchDate, StringFormat=\{0:dd-MM-yyyy\}}" Width="110" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
                     <control:DataGridTextColumn Header="Dispatch Pending" Binding="{Binding DispatchPending}" Width="110" IsColumnFiltered="True" />
 
-                    <!-- View Button Column -->
-                    <control:DataGridTemplateColumn Header="View" Width="50">
+
+                    <control:DataGridTemplateColumn Header="Create Job" Width="120">
                         <control:DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="View"
-                            Command="{Binding DataContext.ViewCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                            CommandParameter="{Binding}">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="#4CAF50"/>
-                                            <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="FontSize" Value="11"/>
-                                            <Setter Property="Padding" Value="4,2"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Cursor" Value="Hand"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="Button">
-                                                        <Border Background="{TemplateBinding Background}" 
-                                                    CornerRadius="5"
-                                                    Padding="{TemplateBinding Padding}">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
+                                <CheckBox 
+                Content="Job Card"
+                IsChecked="{Binding IsSelectedToCreate, Mode=TwoWay}"
+                
+                VerticalAlignment="Center"
+                Padding="4,2"/>
                             </DataTemplate>
                         </control:DataGridTemplateColumn.CellTemplate>
                     </control:DataGridTemplateColumn>
 
-                    <!-- Edit Button Column -->
-                    <control:DataGridTemplateColumn Header="Edit" Width="50">
-                        <control:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Edit"
-                            Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                            CommandParameter="{Binding}">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="#2196F3"/>
-                                            <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="FontSize" Value="11"/>
-                                            <Setter Property="Padding" Value="4,2"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Cursor" Value="Hand"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="Button">
-                                                        <Border Background="{TemplateBinding Background}" 
-                                                    CornerRadius="5"
-                                                    Padding="{TemplateBinding Padding}">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                            </DataTemplate>
-                        </control:DataGridTemplateColumn.CellTemplate>
-                    </control:DataGridTemplateColumn>
+
 
                 </control:FilterDataGrid.Columns>
             </control:FilterDataGrid>
-            
-            
-            
-            <control:FilterDataGrid 
-x:Name="JobcardDG"
-ItemsSource="{Binding PlanningSideDgList}" 
-AutoGenerateColumns="False"    
-ShowRowsCount="True"
-ShowStatusBar="True"
-FilterLanguage="English"
-RowHeight="22"
-FontSize="11"
-ColumnHeaderHeight="28"
-AlternationCount="2"
-RowBackground="White"
-AlternatingRowBackground="#F8F9FB"
-ColumnHeaderStyle="{StaticResource HeaderStyle}"
-RowStyle="{StaticResource RowStyle}"
-CanUserResizeColumns="True"
-CanUserSortColumns="True"
-Margin="0,0,0,0"
-                Grid.Row="1"
-                Grid.Column="1">
+            <Grid x:Name="___Grid__3rd" Grid.Row="2">
 
-                <control:FilterDataGrid.Columns>
-                    <control:DataGridTextColumn Header="WID" Binding="{Binding WID}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
-                    
-                    <control:DataGridTextColumn Header="Assigned" Binding="{Binding Assigned}" Width="110" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
-                    <control:DataGridTextColumn Header="BOM Qty" Binding="{Binding BOMQty}" Width="110" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
-                    <control:DataGridTextColumn Header="Process" Binding="{Binding Process}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
-                     <control:DataGridTextColumn Header="Dispatch Pending" Binding="{Binding DispatchPending}" Width="110" IsColumnFiltered="True" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto" MinWidth="150"/>
 
-                    <!-- View Button Column -->
-                    <control:DataGridTemplateColumn Header="View" Width="50">
-                        <control:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="View"
-                        Command="{Binding DataContext.ViewCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                        CommandParameter="{Binding}">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="#4CAF50"/>
-                                            <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="FontSize" Value="11"/>
-                                            <Setter Property="Padding" Value="4,2"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Cursor" Value="Hand"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="Button">
-                                                        <Border Background="{TemplateBinding Background}" 
-                                                CornerRadius="5"
-                                                Padding="{TemplateBinding Padding}">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                            </DataTemplate>
-                        </control:DataGridTemplateColumn.CellTemplate>
-                    </control:DataGridTemplateColumn>
+                </Grid.ColumnDefinitions>
 
-                    <!-- Edit Button Column -->
-                    <control:DataGridTemplateColumn Header="Edit" Width="50">
-                        <control:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Edit"
-                        Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                        CommandParameter="{Binding}">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="#2196F3"/>
-                                            <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="FontSize" Value="11"/>
-                                            <Setter Property="Padding" Value="4,2"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Cursor" Value="Hand"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="Button">
-                                                        <Border Background="{TemplateBinding Background}" 
-                                                CornerRadius="5"
-                                                Padding="{TemplateBinding Padding}">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                            </DataTemplate>
-                        </control:DataGridTemplateColumn.CellTemplate>
-                    </control:DataGridTemplateColumn>
+                <control:FilterDataGrid 
+                    x:Name="JobcardDG"
+                    ItemsSource="{Binding JobCardList}"
+                    AutoGenerateColumns="False"    
+                    ShowRowsCount="True"
+                    CanUserAddRows="False"
+                    ShowStatusBar="True"
+                    FilterLanguage="English"
+                    RowHeight="22"
+                    FontSize="11"
+                    ColumnHeaderHeight="28"
+                    AlternationCount="2"
+                    RowBackground="White"
+                    AlternatingRowBackground="#F8F9FB"
+                    ColumnHeaderStyle="{StaticResource HeaderStyle}"
+                    RowStyle="{StaticResource RowStyle}"
+                    CanUserResizeColumns="True"
+                    CanUserSortColumns="True" Margin="0,0,10,0">
 
-                </control:FilterDataGrid.Columns>
-            </control:FilterDataGrid>
+                    <control:FilterDataGrid.Columns>
+                        <control:DataGridTextColumn Header="Seq." Binding="{Binding OP_Sequence}" Width="60" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                        <control:DataGridTextColumn Header="Job Card" Binding="{Binding JC_no}" Width="150" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                        <control:DataGridTextColumn Header="WID" Binding="{Binding WID}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                        <control:DataGridTextColumn Header="Operation" Binding="{Binding Operation_ID}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                        <control:DataGridTextColumn Header="Created On" Binding="{Binding Created_date}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                        <control:DataGridTextColumn Header="Created by" Binding="{Binding Created_by}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
+                    </control:FilterDataGrid.Columns>
+                </control:FilterDataGrid>
 
 
 
 
-            <!-- Stock IN Transaction Panel -->
-            <Border Background="White" CornerRadius="6" Padding="16" BorderBrush="#D1D9E6" BorderThickness="1" Grid.Row="1" Margin="878,0,0,0">
-                <StackPanel>
-                    <TextBlock Text="Project Details" FontWeight="SemiBold" FontSize="13" Foreground="#222" Margin="0,0,0,12" />
+                <Border Background="White" CornerRadius="6" Padding="16" BorderBrush="#D1D9E6" BorderThickness="1" Margin="0,0,0,0" Grid.Column="1">
+                    <StackPanel>
+                        <TextBlock Text="Project Details" FontWeight="SemiBold" FontSize="13" Foreground="#222" Margin="0,0,0,12" />
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="110"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
 
-                        <TextBlock Text="PO Date:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,8"/>
-                        <DatePicker Grid.Row="2" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8"/>
 
-                        <TextBlock Text="PO Date:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,8"/>
-                        <DatePicker Grid.Row="3" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8"/>
+                            <TextBlock Text="PO Date:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,8"/>
+                            <DatePicker Grid.Row="2" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8"/>
 
-                        <Button Content="Apply" Grid.Row="4" Grid.Column="1" Width="80" Height="30" Margin="0,12,0,0" Background="#007AFF" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand"  />
-                        <Button Content="Hold/Cancel" Grid.Row="4" Grid.Column="0" Width="80" Height="30" Margin="0,12,0,0" Background="red" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" />
+                            <TextBlock Text="PO Date:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,8"/>
+                            <DatePicker Grid.Row="3" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8"/>
 
-                    </Grid>
+                            <Button Content="Apply" Grid.Row="4" Grid.Column="1" Width="80" Height="30" Margin="0,12,0,0" Background="#007AFF" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand"  />
+                            <Button Content="Delete Jobs" Grid.Row="4" Grid.Column="0" Width="80" Height="30" Margin="0,12,0,0" Background="red" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" Click="DeleteJobCard_Click"/>
+
+                        </Grid>
 
 
-                </StackPanel>
-            </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
         </Grid>
     </Grid>
 </Page>
