@@ -7,8 +7,8 @@ Class Login
     Private isPasswordVisible As Boolean = False
     Private txtPasswordVisible As TextBox = Nothing
 
-    Private Const AppVersion As String = "P25.0.0"
-    Private Const Product As String = "PRODUCTION"
+    Private Const AppVersion As String = "CALSTO_1.0.8"
+    Private Const Product As String = "PROD"
 
     Private Sub CheckVersion()
         Dim isCurrent = LoginDBHelper.CheckVersion(AppVersion, Product)

@@ -26,3 +26,6 @@ Public Class RelayCommand
         RaiseEvent CanExecuteChanged(Me, EventArgs.Empty)
     End Sub
 End Class
+
+
+

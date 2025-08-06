@@ -81,6 +81,8 @@ Public Class PlanningViewModel
 
             If value IsNot Nothing Then
                 LoadJobCardDataAsync(value.WID)
+
+
             Else
                 JobCardList = New ObservableCollection(Of JobCardModel)()
             End If
@@ -136,10 +138,32 @@ Public Class PlanningViewModel
         Return list
     End Function
 
+    'Private Async Sub LoadDetailsFromDatabaseAsync(bomNo As String)
+    'Dim result = Await Task.Run(Function() GetDetailsByBOM(bomNo))
+    '    PlanningSideDgList = New ObservableCollection(Of PlanningSideDgModel)(result)
+    'End Sub
+
+
     Private Async Sub LoadDetailsFromDatabaseAsync(bomNo As String)
-        Dim result = Await Task.Run(Function() GetDetailsByBOM(bomNo))
-        PlanningSideDgList = New ObservableCollection(Of PlanningSideDgModel)(result)
+        Try
+            Dim result = Await Task.Run(Function() GetDetailsByBOM(bomNo))
+            ' ... DB logic to fill newList ...
+
+            If PlanningSideDgList Is Nothing Then
+                PlanningSideDgList = New ObservableCollection(Of PlanningSideDgModel)(result)
+            Else
+                PlanningSideDgList.Clear()
+            End If
+
+            For Each item In result
+                PlanningSideDgList.Add(item)
+            Next
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading details: " & ex.Message)
+        End Try
     End Sub
+
 
     Public Shared Function GetDetailsByBOM(bomNo As String) As List(Of PlanningSideDgModel)
         Dim result As New List(Of PlanningSideDgModel)()
@@ -174,6 +198,8 @@ Public Class PlanningViewModel
 
         Return result
     End Function
+
+
 
     Private Async Sub LoadJobCardDataAsync(wid As String)
         Try
@@ -215,7 +241,14 @@ Public Class PlanningViewModel
 #Region "Command Logic"
 
     Private Sub CreateJobCard()
-        If SelectedBOM Is Nothing Then Return
+        If PlanningSideDgList Is Nothing Then Return
+
+        Dim selectedItems = PlanningSideDgList.Where(Function(x) x.IsSelectedToCreate).ToList()
+
+        If selectedItems.Count = 0 Then
+            MessageBox.Show("No BOMs selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning)
+            Return
+        End If
 
         Try
             Dim conString = ConfigurationManager.ConnectionStrings("Db_Server").ConnectionString
@@ -281,6 +314,16 @@ Public Class PlanningViewModel
             End If
         End Set
     End Property
+
+
+
+    Public Sub RefreshPlanningSideDgList()
+        If SelectedProj IsNot Nothing Then
+            LoadDetailsFromDatabaseAsync(SelectedProj.PROJECTNO)
+        End If
+    End Sub
+
+
 
 
 

@@ -2,10 +2,14 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:control="clr-namespace:FilterDataGrid;assembly=FilterDataGrid"
-      xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Planning"
+      xmlns:local="clr-namespace:TACKERCALSTO.Converters"
+      xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Planning "
       Title="Planning" Background="#FAFAFA" FontFamily="Segoe UI" FontSize="11" av:DesignHeight="594.701">
-
+    
     <Page.Resources>
+
+        <local:JobCardToEnabledConverter x:Key="JobCardToEnabledConverter"/>
+
         <!-- Header style -->
         <Style x:Key="HeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -73,6 +77,7 @@
             x:Name="MasterDG"
             ItemsSource="{Binding PlannigList}"
             AutoGenerateColumns="False"
+            CanUserAddRows="False"
             SelectedItem="{Binding SelectedProj, Mode=TwoWay}"
             ShowRowsCount="True"
             ShowStatusBar="True"
@@ -133,21 +138,22 @@
     ItemsSource="{Binding PlanningSideDgList}" 
     SelectedItem="{Binding SelectedBOM, Mode=TwoWay}"
     SelectionMode="Single"
-    AutoGenerateColumns="False"    
+    AutoGenerateColumns="False" 
+    CanUserAddRows="False"
     ShowRowsCount="True"
     ShowStatusBar="True"
     FilterLanguage="English"
     RowHeight="22"
     FontSize="11"
     ColumnHeaderHeight="28"
-    AlternationCount="2"
+    AlternationCount="1"
     RowBackground="White"
     AlternatingRowBackground="#F8F9FB"
     ColumnHeaderStyle="{StaticResource HeaderStyle}"
     RowStyle="{StaticResource RowStyle}"
     CanUserResizeColumns="True"
     CanUserSortColumns="True"
-    Margin="0,9,0,12" Grid.Row="1">
+    Margin="0,10,0,12" Grid.Row="1">
 
                 <control:FilterDataGrid.Columns>
                     <control:DataGridTextColumn Header="WID" Binding="{Binding WID}" Width="100" IsColumnFiltered="True" ElementStyle="{StaticResource CellTextStyle}" />
@@ -163,20 +169,18 @@
                     <control:DataGridTextColumn Header="Dispatch Pending" Binding="{Binding DispatchPending}" Width="110" IsColumnFiltered="True" />
 
 
-                    <control:DataGridTemplateColumn Header="Create Job" Width="120">
+                    <control:DataGridTemplateColumn Header="Create Job" Width="80">
                         <control:DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox 
                 Content="Job Card"
-                IsChecked="{Binding IsSelectedToCreate, Mode=TwoWay}"
-                
+                IsChecked="{Binding IsSelectedToCreate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Visibility="{Binding Jobcard, Converter={StaticResource JobCardToEnabledConverter}}"
                 VerticalAlignment="Center"
-                Padding="4,2"/>
+                Padding="2,2"/>
                             </DataTemplate>
                         </control:DataGridTemplateColumn.CellTemplate>
                     </control:DataGridTemplateColumn>
-
-
 
                 </control:FilterDataGrid.Columns>
             </control:FilterDataGrid>
