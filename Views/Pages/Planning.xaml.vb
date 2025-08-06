@@ -82,7 +82,6 @@ Class Planning
                 End Using
             End Using
 
-            MessageBox.Show("many rows selected")
         Catch ex As Exception
             MessageBox.Show($"Error creating job card for WID {wid}:{Environment.NewLine}{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error)
         End Try
