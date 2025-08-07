@@ -171,8 +171,8 @@
             <TextBlock Text="FORMING"/>
         </StackPanel>
     </TabItem.Header>
-    <Grid Background="White"/>
-</TabItem>
+                        <Frame Source="Pages/Job.xaml" NavigationUIVisibility="Hidden"/>
+                    </TabItem>
 
 <TabItem Margin="10,-2,-12,0" FontSize="11" FontWeight="Bold">
     <TabItem.Header>

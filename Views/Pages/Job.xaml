@@ -2,15 +2,12 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:control="clr-namespace:FilterDataGrid;assembly=FilterDataGrid"
-     xmlns:local="clr-namespace:TACKERCALSTO.Converters"
-      xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Planning "
-      Title="Planning" Background="#FAFAFA" FontFamily="Segoe UI" FontSize="11" av:DesignHeight="594.701">
+      xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Job"
+      Title="Jobs" Background="#FAFAFA" FontFamily="Segoe UI" FontSize="11" av:DesignHeight="594.701">
 
     <Page.Resources>
 
-
-        <local:JobCardToEnabledConverter x:Key="JobCardToEnabledConverter"/>
-        <!-- Header style -->
+            <!-- Header style -->
         <Style x:Key="HeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="FontSize" Value="11"/>
@@ -127,15 +124,15 @@
             <!-- Details DataGrid -->
             <DockPanel Grid.Row="0" HorizontalAlignment="Right">
 
-                <CheckBox x:Name="SelectAllFilteredCheckBox" Content="Select all-Filtered" Width="130" VerticalAlignment="Center" Click="SelectAllFilteredCheckBox_Click"/>
-                <Button Content="Create Job Card" Background="#007AFF" Foreground="White" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"  DockPanel.Dock="Right" Width="86" Margin="0,0,50,0" Click="CreateJobCard_Click"/>
+                <CheckBox x:Name="SelectAllFilteredCheckBox" Content="Select all-Filtered" Width="130" VerticalAlignment="Center"/>
+                <Button Content="Create Job Card" Background="#007AFF" Foreground="White" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"  DockPanel.Dock="Right" Width="86" Margin="0,0,50,0"/>
             </DockPanel>
 
 
             <!-- Details DataGrid -->
             <control:FilterDataGrid 
     x:Name="WIDBOMDG"
-    ItemsSource="{Binding PlanningSideDgList}" 
+    ItemsSource="{Binding JobFormingList}" 
     SelectedItem="{Binding SelectedBOM, Mode=TwoWay}"
     SelectionMode="Single"
     AutoGenerateColumns="False" 
@@ -250,7 +247,7 @@
                             <DatePicker Grid.Row="3" Grid.Column="1" Width="150" FontSize="12" Margin="0,0,0,8"/>
 
                             <Button Content="Apply" Grid.Row="4" Grid.Column="1" Width="80" Height="30" Margin="0,12,0,0" Background="#007AFF" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand"  />
-                            <Button Content="Delete Jobs" Grid.Row="4" Grid.Column="0" Width="80" Height="30" Margin="0,12,0,0" Background="red" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" Click="DeleteJobCard_Click"/>
+                            <Button Content="Delete Jobs" Grid.Row="4" Grid.Column="0" Width="80" Height="30" Margin="0,12,0,0" Background="red" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand"/>
 
                         </Grid>
 
