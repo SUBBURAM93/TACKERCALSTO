@@ -1,0 +1,402 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\pages\\dashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\pages\\dashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\viewmodel\\dashboardviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:viewmodel\\dashboardviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\model\\planningmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:model\\planningmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\viewmodel\\planningviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:viewmodel\\planningviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\pages\\planning.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\pages\\planning.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\pages\\job.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\pages\\job.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\pages\\job.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\pages\\job.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\model\\jobmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:model\\jobmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\viewmodel\\jobviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:viewmodel\\jobviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\dataandsupport\\databaseservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:dataandsupport\\databaseservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\dataandsupport\\jobcardtoenabledconverter.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:dataandsupport\\jobcardtoenabledconverter.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\viewmodel\\loginviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:viewmodel\\loginviewmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\model\\dashboardmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:model\\dashboardmodel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\dataandsupport\\relaycommand.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:dataandsupport\\relaycommand.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\p4sd16\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\application.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:application.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\pages\\planning.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\pages\\planning.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\obj\\Debug\\net8.0-windows\\Views\\Pages\\Planning.g.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\net8.0-windows\\Views\\Pages\\Planning.g.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\home.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\home.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\assemblyinfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:assemblyinfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\views\\pages\\dashboard.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:views\\pages\\dashboard.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|c:\\users\\p4sd16\\source\\repos\\tackercalsto\\tackercalsto.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{9223B439-599F-45AC-B554-92E399EC7645}|TACKERCALSTO.vbproj|solutionrelative:tackercalsto.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 71,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlanningModel.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Model\\PlanningModel.vb",
+              "RelativeDocumentMoniker": "Model\\PlanningModel.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Model\\PlanningModel.vb",
+              "RelativeToolTip": "Model\\PlanningModel.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-04T04:24:22.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Job.xaml.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Job.xaml.vb",
+              "RelativeDocumentMoniker": "Views\\Pages\\Job.xaml.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Job.xaml.vb",
+              "RelativeToolTip": "Views\\Pages\\Job.xaml.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-07T11:34:10.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlanningViewModel.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\PlanningViewModel.vb",
+              "RelativeDocumentMoniker": "ViewModel\\PlanningViewModel.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\PlanningViewModel.vb",
+              "RelativeToolTip": "ViewModel\\PlanningViewModel.vb",
+              "ViewState": "AgIAANkAAAAAAAAAAAAYwEoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-04T04:22:15.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DashboardViewModel.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\DashboardViewModel.vb",
+              "RelativeDocumentMoniker": "ViewModel\\DashboardViewModel.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\DashboardViewModel.vb",
+              "RelativeToolTip": "ViewModel\\DashboardViewModel.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-02T10:16:57.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.xaml",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Dashboard.xaml",
+              "RelativeDocumentMoniker": "Views\\Pages\\Dashboard.xaml",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Dashboard.xaml",
+              "RelativeToolTip": "Views\\Pages\\Dashboard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-02T04:21:32.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DatabaseService.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\DataAndSupport\\DatabaseService.vb",
+              "RelativeDocumentMoniker": "DataAndSupport\\DatabaseService.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\DataAndSupport\\DatabaseService.vb",
+              "RelativeToolTip": "DataAndSupport\\DatabaseService.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-07T11:32:58.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "JobViewModel.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\JobViewModel.vb",
+              "RelativeDocumentMoniker": "ViewModel\\JobViewModel.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\JobViewModel.vb",
+              "RelativeToolTip": "ViewModel\\JobViewModel.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-07T07:28:59.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JobModel.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Model\\JobModel.vb",
+              "RelativeDocumentMoniker": "Model\\JobModel.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Model\\JobModel.vb",
+              "RelativeToolTip": "Model\\JobModel.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-07T03:55:54.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Job.xaml",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Job.xaml",
+              "RelativeDocumentMoniker": "Views\\Pages\\Job.xaml",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Job.xaml",
+              "RelativeToolTip": "Views\\Pages\\Job.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-06T11:58:20.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Planning.xaml",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Planning.xaml",
+              "RelativeDocumentMoniker": "Views\\Pages\\Planning.xaml",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Planning.xaml",
+              "RelativeToolTip": "Views\\Pages\\Planning.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-01T08:47:36.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "JobCardToEnabledConverter.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\DataAndSupport\\JobCardToEnabledConverter.vb",
+              "RelativeDocumentMoniker": "DataAndSupport\\JobCardToEnabledConverter.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\DataAndSupport\\JobCardToEnabledConverter.vb",
+              "RelativeToolTip": "DataAndSupport\\JobCardToEnabledConverter.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-06T09:54:03.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginViewModel.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\LoginViewModel.vb",
+              "RelativeDocumentMoniker": "ViewModel\\LoginViewModel.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\ViewModel\\LoginViewModel.vb",
+              "RelativeToolTip": "ViewModel\\LoginViewModel.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-07T03:02:22.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DashboardModel.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Model\\DashboardModel.vb",
+              "RelativeDocumentMoniker": "Model\\DashboardModel.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Model\\DashboardModel.vb",
+              "RelativeToolTip": "Model\\DashboardModel.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-02T10:24:07.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RelayCommand.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\DataAndSupport\\RelayCommand.vb",
+              "RelativeDocumentMoniker": "DataAndSupport\\RelayCommand.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\DataAndSupport\\RelayCommand.vb",
+              "RelativeToolTip": "DataAndSupport\\RelayCommand.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-06T09:52:34.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Home.xaml",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Home.xaml",
+              "RelativeDocumentMoniker": "Views\\Home.xaml",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Home.xaml",
+              "RelativeToolTip": "Views\\Home.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-01T09:24:18.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Application.xaml",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Application.xaml",
+              "RelativeDocumentMoniker": "Application.xaml",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Application.xaml",
+              "RelativeToolTip": "Application.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-01T09:24:31.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ResourcePart.cs",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs",
+              "ToolTip": "C:\\Users\\p4sd16\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAWwCcAAAAEAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T04:18:00.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Planning.g.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\obj\\Debug\\net8.0-windows\\Views\\Pages\\Planning.g.vb",
+              "RelativeDocumentMoniker": "obj\\Debug\\net8.0-windows\\Views\\Pages\\Planning.g.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\obj\\Debug\\net8.0-windows\\Views\\Pages\\Planning.g.vb",
+              "RelativeToolTip": "obj\\Debug\\net8.0-windows\\Views\\Pages\\Planning.g.vb",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAawGwAAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-07T03:56:32.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Home.xaml.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Home.xaml.vb",
+              "RelativeDocumentMoniker": "Views\\Home.xaml.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Home.xaml.vb",
+              "RelativeToolTip": "Views\\Home.xaml.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-02T04:19:31.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Planning.xaml.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Planning.xaml.vb",
+              "RelativeDocumentMoniker": "Views\\Pages\\Planning.xaml.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Planning.xaml.vb",
+              "RelativeToolTip": "Views\\Pages\\Planning.xaml.vb",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAnwBwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-06T11:18:47.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AssemblyInfo.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\AssemblyInfo.vb",
+              "RelativeDocumentMoniker": "AssemblyInfo.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\AssemblyInfo.vb",
+              "RelativeToolTip": "AssemblyInfo.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-06T04:22:10.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "app.config",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\app.config",
+              "RelativeDocumentMoniker": "app.config",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\app.config",
+              "RelativeToolTip": "app.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-08-06T04:22:14.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Dashboard.xaml.vb",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Dashboard.xaml.vb",
+              "RelativeDocumentMoniker": "Views\\Pages\\Dashboard.xaml.vb",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\Views\\Pages\\Dashboard.xaml.vb",
+              "RelativeToolTip": "Views\\Pages\\Dashboard.xaml.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-08-04T04:36:21.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "TACKERCALSTO",
+              "DocumentMoniker": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\TACKERCALSTO.vbproj",
+              "RelativeDocumentMoniker": "TACKERCALSTO.vbproj",
+              "ToolTip": "C:\\Users\\p4sd16\\source\\repos\\TACKERCALSTO\\TACKERCALSTO.vbproj",
+              "RelativeToolTip": "TACKERCALSTO.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003380|",
+              "WhenOpened": "2025-08-02T11:33:19.853Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
