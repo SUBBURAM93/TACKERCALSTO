@@ -143,7 +143,7 @@
             <!-- Stock IN Transaction Panel -->
             <Border Background="White" CornerRadius="6" Padding="16" BorderBrush="#D1D9E6" BorderThickness="1" Grid.Row="1">
                 <StackPanel>
-                    <TextBlock Text="Project Details" FontWeight="SemiBold" FontSize="13" Foreground="#222" Margin="0,0,0,12" />
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#222" Margin="0,0,0,12" ><Run Text="Project Details"/><Run Language="en-in" Text="1111"/></TextBlock>
 
                     <Grid>
                         <Grid.ColumnDefinitions>
